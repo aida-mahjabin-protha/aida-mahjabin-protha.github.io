@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aida Mahjabin Protha | Operations, Content & Design</title>
+<meta name="description" content="Portfolio of Aida Mahjabin Protha: operations management, content writing, graphic design and video editing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#08080a; --red:#d4101f; --red-glow:#ff2d3d; --red-deep:#7a0a14; --white:#fff;
+  --glass:rgba(255,255,255,.07); --glass-strong:rgba(255,255,255,.12);
+  --edge:rgba(255,255,255,.2); --muted:#b8b8c0;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Jost","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--sans);font-size:1.05rem;line-height:1.7;overflow-x:hidden;position:relative}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red-glow);outline-offset:3px;border-radius:6px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
+
+/* background graphics: glowing orbs and ring */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(60px)}
+.o1{width:36rem;height:36rem;background:radial-gradient(circle at 35% 35%,var(--red-glow),var(--red) 45%,transparent 70%);top:-8rem;right:-6rem;opacity:.85;animation:drift 18s ease-in-out infinite alternate}
+.o2{width:28rem;height:28rem;background:radial-gradient(circle,var(--red-deep),transparent 70%);bottom:6rem;left:-8rem;opacity:.9;animation:drift 22s ease-in-out infinite alternate-reverse}
+.o3{width:20rem;height:20rem;background:radial-gradient(circle,#fff,transparent 65%);top:45%;left:55%;opacity:.12}
+.ring{position:absolute;width:44rem;height:44rem;border:1px solid rgba(255,255,255,.12);border-radius:50%;top:8rem;left:-14rem}
+.ring.r2{width:30rem;height:30rem;top:14rem;left:-7rem;border-color:rgba(255,45,61,.25)}
+@keyframes drift{to{transform:translate(-3rem,4rem) scale(1.08)}}
+@media (prefers-reduced-motion:reduce){.orb{animation:none}html{scroll-behavior:auto}}
+
+/* glass */
+.glass{background:var(--glass);border:1px solid var(--edge);border-radius:1.5rem;
+  -webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%);
+  box-shadow:0 20px 50px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.25)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:rgba(30,30,34,.92)}}
+
+/* nav */
+.nav{position:sticky;top:1rem;z-index:5;margin:1rem auto 0;max-width:70rem;padding:.8rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;border-radius:999px}
+.nav .mark{font-family:var(--serif);font-size:1.45rem;font-weight:600;text-decoration:none}
+.nav ul{display:flex;gap:1.75rem;list-style:none;flex-wrap:wrap}
+.nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.97rem}
+.nav ul a:hover{color:var(--white)}
+.navwrap{padding:0 1rem;position:sticky;top:0;z-index:5}
+.navwrap .nav{top:0}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;padding:5rem 0 4rem}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(3.2rem,9vw,6.6rem);line-height:.95}
+.hero h1 em{font-style:italic;font-weight:500}
+.role{margin-top:1.4rem;font-family:var(--serif);font-size:1.6rem;font-style:italic;color:#f0e6e6}
+.lead{margin-top:1rem;max-width:33rem;color:var(--muted)}
+.actions{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.85rem 2rem;border-radius:999px;font-weight:500;text-decoration:none;border:1px solid var(--edge);background:var(--glass-strong);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.btn:hover{background:rgba(255,255,255,.2)}
+.btn.red{background:linear-gradient(135deg,var(--red-glow),var(--red-deep));border-color:rgba(255,255,255,.3);box-shadow:0 10px 30px rgba(212,16,31,.45)}
+.btn.red:hover{filter:brightness(1.12)}
+.badge{padding:2.5rem 2rem;text-align:center;transform:rotate(3deg)}
+.badge .ap{font-family:var(--serif);font-size:clamp(5.5rem,13vw,9rem);font-weight:500;line-height:1;letter-spacing:.04em;background:linear-gradient(160deg,#fff 20%,#ff8a93);-webkit-background-clip:text;background-clip:text;color:transparent}
+.badge p{color:var(--muted);margin-top:.5rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.4rem}
+.chip{padding:.3rem .9rem;border-radius:999px;border:1px solid var(--edge);font-size:.88rem;background:rgba(255,255,255,.06)}
+
+/* sections */
+section{padding:4rem 0}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,5vw,3.3rem);line-height:1.05;margin-bottom:.6rem}
+.sub{color:var(--muted);max-width:34rem;margin-bottom:2.5rem}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.piece{overflow:hidden;display:flex;flex-direction:column}
+.piece.feature{grid-column:1/-1;flex-direction:row}
+.thumb{min-height:13rem;position:relative;background:linear-gradient(135deg,var(--red-glow),var(--red-deep) 60%,#1a0508)}
+.piece.feature .thumb{flex:0 0 42%;min-height:19rem}
+.thumb::before{content:"";position:absolute;width:9rem;height:9rem;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);top:18%;left:14%;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.thumb::after{content:"";position:absolute;width:11rem;height:7rem;border-radius:1.2rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);bottom:14%;right:12%;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.thumb.alt{background:linear-gradient(135deg,#2b2b31,#0d0d10 70%)}
+.thumb.alt2{background:linear-gradient(135deg,#fff3,#d4101f66 70%,#08080a)}
+.info{padding:1.75rem 2rem 2rem;display:flex;flex-direction:column;justify-content:center}
+.piece h3{font-family:var(--serif);font-size:1.9rem;line-height:1.1;font-weight:600;margin-bottom:.6rem}
+.piece.feature h3{font-size:2.4rem}
+.piece p{color:var(--muted)}
+.tag{margin-top:1.1rem;font-weight:500;font-size:.93rem;color:#ff7a85}
+
+/* expertise */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.25rem}
+.skill{padding:1.75rem}
+.skill h3{font-family:var(--serif);font-size:1.6rem;font-weight:600;margin-bottom:.4rem}
+.skill p{color:var(--muted)}
+.tools{margin-top:1.5rem;padding:1.25rem 1.75rem;color:var(--muted);border-radius:1rem}
+.tools strong{color:var(--white);font-weight:500}
+
+/* experience */
+.roles{display:grid;gap:1.25rem}
+.role-card{padding:1.75rem 2rem;display:grid;grid-template-columns:11rem 1fr;gap:1.5rem}
+.when{color:#ff7a85;font-weight:600;font-size:.95rem}
+.role-card h3{font-family:var(--serif);font-size:1.65rem;font-weight:600;line-height:1.15}
+.org{color:var(--white);font-weight:500;opacity:.85}
+.role-card p{color:var(--muted);margin-top:.3rem;max-width:40rem}
+
+/* contact */
+.contact{padding:4rem 2rem;text-align:center;margin:3rem 0;background:linear-gradient(135deg,rgba(255,45,61,.35),rgba(255,255,255,.07))}
+.contact p{max-width:30rem;margin:0 auto 2rem;color:#f2e6e6}
+footer{text-align:center;color:#8c8c93;padding:0 1rem 2.5rem;font-size:.92rem;position:relative;z-index:1}
+
+@media (max-width:50rem){
+  .hero{grid-template-columns:1fr;padding:3rem 0}
+  .badge{transform:none;max-width:20rem}
+  .work{grid-template-columns:1fr}
+  .piece.feature{flex-direction:column}
+  .piece.feature .thumb{flex:none;min-height:13rem}
+  .role-card{grid-template-columns:1fr;gap:.3rem}
+  .nav{border-radius:1.5rem}
+}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="ring"></div><div class="ring r2"></div>
+</div>
+
+<div class="navwrap">
+  <header class="nav glass">
+    <a class="mark" href="#top">Aida Mahjabin Protha</a>
+    <nav aria-label="Main"><ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </header>
+</div>
+
+<div class="wrap">
+  <main id="top" class="hero">
+    <div>
+      <h1>Aida <em>Mahjabin</em> Protha</h1>
+      <p class="role">Operations manager, content strategist and designer</p>
+      <p class="lead">I lead teams, support executives and shape brands through clear writing, graphics and video. Based in Dhaka, working with clients worldwide.</p>
+      <div class="actions">
+        <a class="btn red" href="#work">View my work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="glass badge">
+      <div class="ap" aria-hidden="true">AP</div>
+      <p>Operations, content and design</p>
+      <div class="chips"><span class="chip">Leadership</span><span class="chip">Content</span><span class="chip">Design</span><span class="chip">Video</span></div>
+    </div>
+  </main>
+
+  <section id="work" aria-labelledby="work-h">
+    <h2 id="work-h">Selected work</h2>
+    <p class="sub">Creative and operational work delivered for brands and teams.</p>
+    <div class="work">
+      <!-- Replace each .thumb with an <img src="your-image.jpg" alt="..."> to show real projects. -->
+      <article class="glass piece feature">
+        <div class="thumb"></div>
+        <div class="info">
+          <h3>Social media creatives for product brands</h3>
+          <p>Graphics and videos for beauty, haircare, food and wellness brands at Color Purpose Consulting, designed to stay true to each brand's look.</p>
+          <p class="tag">Graphic design and video editing</p>
+        </div>
+      </article>
+      <article class="glass piece">
+        <div class="thumb alt"></div>
+        <div class="info">
+          <h3>Marketing visuals for Brand Clamp</h3>
+          <p>Branded content and social posts that follow client guidelines.</p>
+          <p class="tag">Canva, Photoshop, Illustrator</p>
+        </div>
+      </article>
+      <article class="glass piece">
+        <div class="thumb alt2"></div>
+        <div class="info">
+          <h3>Content strategy for a news network</h3>
+          <p>Planning and managing content for Dhaka Washington News Network.</p>
+          <p class="tag">Content management</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-h">
+    <h2 id="about-h">Expertise</h2>
+    <p class="sub">Four areas where I help teams and brands move faster.</p>
+    <div class="skills">
+      <div class="glass skill"><h3>Operations and leadership</h3><p>Team management, recruitment, executive support and client meetings, with a growing focus on AI automation.</p></div>
+      <div class="glass skill"><h3>Content and marketing</h3><p>Social media management, copywriting and competitor audits turned into clear plans.</p></div>
+      <div class="glass skill"><h3>Design and video</h3><p>Graphic design, video editing, motion graphics and UI/UX design.</p></div>
+      <div class="glass skill"><h3>Sales support</h3><p>Lead generation, outbound calls, data entry and organized lead tracking.</p></div>
+    </div>
+    <p class="glass tools"><strong>Tools:</strong> Canva, Adobe Photoshop, Illustrator, Premiere Pro, Figma, Claude, MS Office 365, Google Workspace.</p>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <h2 id="exp-h">Experience</h2>
+    <p class="sub">Where I have worked, newest first.</p>
+    <div class="roles">
+      <article class="glass role-card"><span class="when">Oct 2026 – Present</span><div><h3>Operations Manager &amp; Executive Assistant to the CEO</h3><span class="org">Flow Claw AI</span><p>Hiring, managing teams and projects, and joining client meetings alongside the CEO.</p></div></article>
+      <article class="glass role-card"><span class="when">May 2026 – Present</span><div><h3>Junior Graphic Designer &amp; Video Editor</h3><span class="org">Color Purpose Consulting</span><p>Graphics and video for product brand clients.</p></div></article>
+      <article class="glass role-card"><span class="when">May 2025 – Oct 2026</span><div><h3>Operational Executive Supervisor</h3><span class="org">Brand Clamp Inc.</span><p>Coordinated cross-functional teams, created branded content and handled outbound sales communication.</p></div></article>
+      <article class="glass role-card"><span class="when">Mar – Sep 2025</span><div><h3>CX, Social Media &amp; Copywriting Executive</h3><span class="org">GripperSoft (internship)</span><p>Customer interactions plus social media planning and copy.</p></div></article>
+    </div>
+  </section>
+
+  <section id="contact" class="glass contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Let's work together</h2>
+    <p>Open to operations, executive support and creative roles. Send a short note and I will reply soon.</p>
+    <a class="btn red" href="mailto:mahjabinaida@gmail.com">Email Aida</a>
+  </section>
+</div>
+<footer>&copy; 2026 Aida Mahjabin Protha</footer>
+</body>
+</html>
