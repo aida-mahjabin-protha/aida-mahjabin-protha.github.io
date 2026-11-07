@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Design work | Aida Mahjabin Protha</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script>document.documentElement.classList.add("js")</script></head><body>
+<div class="navwrap"><header class="nav glass"><a class="mark" href="index.html">Aida Mahjabin Protha</a><nav aria-label="Main"><ul>
+<li><a href="index.html">Home</a></li><li><a href="work.html" aria-current="page">Design work</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav></header></div>
+<div class="wrap">
+<div class="page-head"><h1 class="play">Design work</h1><p class="lead">Click any piece to view it larger.</p></div>
+<div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+<div class="gallery" id="gallery"></div>
+</div>
+<dialog id="box" aria-label="Image viewer"><div id="boxbody"></div><p id="boxcap"></p><div style="text-align:center"><button class="btn" id="close">Close</button></div></dialog>
+<script>
+/* HOW TO ADD YOUR IMAGES
+   1. Upload your pictures into a folder named "images" in your GitHub repository.
+   2. Add one line per image below. Example:
+      {src:"images/my-poster.jpg", title:"Summer poster", cat:"Social media", ratio:"4/5"},
+   - cat is the filter group (Social media, Branding, Video, UI/UX, or your own).
+   - ratio is width/height of the image (4/5, 1/1, 16/9). Only used for placeholders.
+   Lines with src:"" show a red placeholder until you add the file name. */
+var works=[
+ {src:"",title:"Social media post",cat:"Social media",ratio:"4/5"},
+ {src:"",title:"Brand identity",cat:"Branding",ratio:"1/1"},
+ {src:"",title:"Product campaign",cat:"Social media",ratio:"3/4"},
+ {src:"",title:"Motion graphic",cat:"Video",ratio:"16/9"},
+ {src:"",title:"App screen",cat:"UI/UX",ratio:"4/5"},
+ {src:"",title:"Logo set",cat:"Branding",ratio:"1/1"}
+];
+var gal=document.getElementById('gallery'),fil=document.getElementById('filters'),box=document.getElementById('box');
+function media(w,big){
+  if(w.src){var i=document.createElement('img');i.src=w.src;i.alt=w.title;if(!big)i.loading='lazy';return i;}
+  var d=document.createElement('div');d.className='ph';d.style.aspectRatio=w.ratio||'4/5';d.textContent=w.title;return d;
+}
+function draw(cat){
+  gal.innerHTML='';
+  works.filter(function(w){return cat==='All'||w.cat===cat;}).forEach(function(w){
+    var b=document.createElement('button');b.className='glass shot';b.type='button';
+    b.appendChild(media(w,false));
+    var c=document.createElement('div');c.className='cap';c.innerHTML='<b></b> &middot; <span></span>';
+    c.querySelector('b').textContent=w.title;c.querySelector('span').textContent=w.cat;b.appendChild(c);
+    b.onclick=function(){var body=document.getElementById('boxbody');body.innerHTML='';body.appendChild(media(w,true));document.getElementById('boxcap').textContent=w.title+' · '+w.cat;box.showModal();};
+    gal.appendChild(b);
+  });
+}
+var cats=['All'].concat(works.map(function(w){return w.cat;}).filter(function(v,i,a){return a.indexOf(v)===i;}));
+cats.forEach(function(c,i){
+  var b=document.createElement('button');b.className='btn';b.type='button';b.textContent=c;b.setAttribute('aria-pressed',i===0);
+  b.onclick=function(){Array.from(fil.children).forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');draw(c);};
+  fil.appendChild(b);
+});
+draw('All');
+document.getElementById('close').onclick=function(){box.close();};
+box.addEventListener('click',function(e){if(e.target===box)box.close();});
+</script>
+<footer>&copy; 2026 Aida Mahjabin Protha</footer><script src="script.js"></script></body></html>
