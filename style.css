@@ -1,4 +1,4 @@
-:root{--black:#07070a;--red:#a30f1e;--red-glow:#d01e32;--red-deep:#4a050c;--hot:#ff4d5e;--white:#fff;
+:root{--black:#07070a;--red:#5a1524;--red-glow:#8a1f3a;--red-deep:#2a0a14;--hot:#e0526e;--white:#fff;
 --glass:rgba(255,255,255,.07);--glass2:rgba(255,255,255,.12);--edge:rgba(255,255,255,.18);--muted:#b8b8c0;
 --serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost","Segoe UI",system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -11,7 +11,7 @@ body::after{content:"";position:fixed;width:44rem;height:44rem;border:1px solid 
 a{color:inherit}
 :focus-visible{outline:3px solid var(--hot);outline-offset:3px;border-radius:6px}
 .wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
-.glow{position:fixed;width:26rem;height:26rem;border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(circle,rgba(208,30,50,.28),transparent 65%);transform:translate(-50%,-50%);left:-50rem;top:0}
+.glow{position:fixed;width:26rem;height:26rem;border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(circle,rgba(138,31,58,.38),transparent 65%);transform:translate(-50%,-50%);left:-50rem;top:0}
 
 .glass{background:var(--glass);border:1px solid var(--edge);border-radius:1.5rem;-webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%);box-shadow:0 20px 50px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.22)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:rgba(28,28,32,.93)}}
@@ -38,13 +38,13 @@ section{padding:3.5rem 0}
 
 .btn{display:inline-block;padding:.85rem 2rem;border-radius:999px;font-weight:500;text-decoration:none;border:1px solid var(--edge);background:var(--glass2);cursor:pointer;color:inherit;font:inherit;font-weight:500;transform:translate(var(--mx,0),var(--my,0));transition:transform .2s ease-out,filter .2s,background .2s}
 .btn:hover{background:rgba(255,255,255,.2)}
-.btn.red{background:linear-gradient(135deg,var(--red-glow),var(--red-deep));border-color:rgba(255,255,255,.28);box-shadow:0 10px 30px rgba(163,15,30,.5)}
+.btn.red{background:linear-gradient(135deg,var(--red-glow),var(--red-deep));border-color:rgba(255,255,255,.28);box-shadow:0 10px 30px rgba(90,21,36,.65)}
 .btn.red:hover{filter:brightness(1.15)}
 .actions{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap}
 
 .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;padding:4.5rem 0 3rem}
 .badge{padding:2.5rem 2rem;text-align:center;transform:rotate(3deg)}
-.ap{font-family:var(--serif);font-size:clamp(5.5rem,13vw,9rem);font-weight:500;line-height:1;letter-spacing:.04em;background:linear-gradient(160deg,#fff 20%,#ff7a85);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ap{font-family:var(--serif);font-size:clamp(5.5rem,13vw,9rem);font-weight:500;line-height:1;letter-spacing:.04em;background:linear-gradient(160deg,#fff 20%,#e5849a);-webkit-background-clip:text;background-clip:text;color:transparent}
 .badge p{color:var(--muted)}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.3rem}
 .chip{padding:.3rem .9rem;border-radius:999px;border:1px solid var(--edge);font-size:.88rem;background:rgba(255,255,255,.06)}
@@ -57,7 +57,7 @@ section{padding:3.5rem 0}
 
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
 .tile{padding:1.75rem;min-height:14rem;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;position:relative;overflow:hidden;transform:perspective(800px) rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .15s ease-out}
-.tile::before{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(208,30,50,.55),transparent 65%);z-index:-1}
+.tile::before{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(138,31,58,.6),transparent 65%);z-index:-1}
 .tile h3{font-size:1.8rem}
 .tile p{color:var(--muted);margin-top:.3rem}
 
@@ -88,7 +88,7 @@ dialog p{margin:.8rem 0 .6rem;text-align:center}
 .role-card p{color:var(--muted);margin-top:.3rem;max-width:40rem}
 .note{margin-top:1.5rem;padding:1.25rem 1.75rem;color:var(--muted);border-radius:1rem}
 .note strong{color:var(--white);font-weight:500}
-.contact{padding:4rem 2rem;text-align:center;margin:1rem 0 3rem;background:linear-gradient(135deg,rgba(163,15,30,.4),rgba(255,255,255,.06))}
+.contact{padding:4rem 2rem;text-align:center;margin:1rem 0 3rem;background:linear-gradient(135deg,rgba(90,21,36,.55),rgba(255,255,255,.06))}
 .contact p{max-width:30rem;margin:0 auto 2rem;color:#f2e6e6}
 .contact h1{font-size:clamp(2.8rem,8vw,5.2rem);margin-bottom:1rem}
 footer{text-align:center;color:#8c8c93;padding:1rem 1rem 2.5rem;font-size:.92rem}
@@ -97,3 +97,32 @@ html.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease
 html.js .reveal.in{opacity:1;transform:none}
 @media (max-width:50rem){.hero{grid-template-columns:1fr;padding-top:3rem}.badge{transform:none;max-width:20rem}.tiles{grid-template-columns:1fr}.role-card{grid-template-columns:1fr;gap:.3rem}.nav{border-radius:1.5rem}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}body::before,.track{animation:none}html.js .reveal{opacity:1;transform:none;transition:none}.play .ch,.tile,.shot,.btn{transition:none}}
+
+/* motion that works on phones too */
+@keyframes pop{0%{transform:none}40%{transform:translateY(-.2em) rotate(-8deg) scale(1.22);color:var(--hot)}100%{transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(.6em) rotate(6deg)}to{opacity:1;transform:none}}
+@keyframes floaty{from{translate:0 0}to{translate:0 -12px}}
+.play .ch.pop{animation:pop .6s cubic-bezier(.3,1.7,.5,1)}
+html.js .play .ch{animation:rise .8s cubic-bezier(.2,.9,.3,1.2) backwards;animation-delay:calc(var(--i,0)*40ms)}
+html.js .play .ch.pop{animation:pop .6s cubic-bezier(.3,1.7,.5,1)}
+.badge{animation:floaty 5s ease-in-out infinite alternate}
+.glow{opacity:0;transition:opacity .5s}
+.glow.on{opacity:1}
+.tile:active,.shot:active{transform:perspective(800px) scale(.97)}
+.play{-webkit-tap-highlight-color:transparent;touch-action:pan-y}
+@media (prefers-reduced-motion:reduce){.badge,html.js .play .ch,.play .ch.pop{animation:none}}
+
+/* lively AP card */
+.badge{position:relative;overflow:hidden;touch-action:pan-y;transform:perspective(800px) rotateX(var(--rx,0)) rotateY(var(--ry,0)) rotate(3deg);transition:transform .15s ease-out;cursor:pointer}
+.badge::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.2) 50%,transparent 60%);background-size:260% 100%;background-position:130% 0;animation:sweep 4.5s ease-in-out infinite}
+.badge::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at var(--gx,30%) var(--gy,18%),rgba(255,255,255,.2),transparent 50%)}
+.badge .ap{background-size:200% 200%;animation:shine 6s ease-in-out infinite alternate}
+.badge .chip{animation:bob 2.6s ease-in-out infinite alternate}
+.badge .chip:nth-child(2){animation-delay:.35s}.badge .chip:nth-child(3){animation-delay:.7s}.badge .chip:nth-child(4){animation-delay:1.05s}
+.badge.spin{animation:floaty 5s ease-in-out infinite alternate,spin .9s cubic-bezier(.3,1.4,.5,1)}
+@keyframes sweep{0%,25%{background-position:130% 0}70%,100%{background-position:-30% 0}}
+@keyframes shine{from{background-position:0% 0%}to{background-position:100% 100%}}
+@keyframes bob{to{translate:0 -6px}}
+@keyframes spin{from{rotate:0 1 0 0deg}to{rotate:0 1 0 360deg}}
+@media (max-width:50rem){.badge{transform:perspective(800px) rotateX(var(--rx,0)) rotateY(var(--ry,0))}}
+@media (prefers-reduced-motion:reduce){.badge,.badge::before,.badge .ap,.badge .chip,.badge.spin{animation:none}}
