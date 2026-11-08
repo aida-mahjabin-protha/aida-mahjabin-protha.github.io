@@ -45,11 +45,11 @@ addEventListener('touchmove',function(e){moveGlow(e.touches[0].clientX,e.touches
 addEventListener('touchend',function(){g.classList.remove('on');},{passive:true});
 
 // tilt on cards, magnetic buttons (mouse only for buttons)
-function resetTilt(except){document.querySelectorAll('.tile,.shot,.badge').forEach(function(c){if(c!==except){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg');}});}
+function resetTilt(except){document.querySelectorAll('.tile,.shot,.badge,.card,.role-card').forEach(function(c){if(c!==except){c.classList.remove('lit');c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg');}});}
 document.addEventListener('pointermove',function(e){
-  var t=e.target.closest&&e.target.closest('.tile,.shot,.badge');
+  var t=e.target.closest&&e.target.closest('.tile,.shot,.badge,.card,.role-card');
   resetTilt(t);
-  if(t){var r=t.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.setProperty('--ry',(x*10)+'deg');t.style.setProperty('--rx',(-y*10)+'deg');t.style.setProperty('--gx',((x+.5)*100)+'%');t.style.setProperty('--gy',((y+.5)*100)+'%');}
+  if(t){t.classList.add('lit');var r=t.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.setProperty('--ry',(x*(r.width>520?4:10))+'deg');t.style.setProperty('--rx',(-y*(r.width>520?4:10))+'deg');t.style.setProperty('--gx',((x+.5)*100)+'%');t.style.setProperty('--gy',((y+.5)*100)+'%');}
   if(e.pointerType==='mouse'){
     document.querySelectorAll('.btn').forEach(function(b){
       var r=b.getBoundingClientRect();var dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
@@ -60,6 +60,7 @@ document.addEventListener('pointermove',function(e){
 });
 ['pointerup','pointercancel'].forEach(function(ev){document.addEventListener(ev,function(e){if(e.pointerType!=='mouse')resetTilt(null);});});
 
+document.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('.card,.role-card');if(c&&c.animate)c.animate([{scale:1},{scale:.94},{scale:1.05},{scale:1}],{duration:500,easing:'ease-out'});});
 var WING='M30 17Q22 5 2 7Q7 11 8 18Q11 14 15 19Q18 15 22 21Q26 18 30 24Z';
 var BODY='fill="#3a0f1c" stroke="#e0526e" stroke-width=".8" stroke-linejoin="round"';
 var BAT='<svg viewBox="0 0 64 36" aria-hidden="true"><g class="wl"><path d="'+WING+'" '+BODY+'/></g><g class="wr"><path transform="translate(64 0) scale(-1 1)" d="'+WING+'" '+BODY+'/></g><ellipse cx="32" cy="21" rx="4.6" ry="8.5" '+BODY+'/><circle cx="32" cy="12" r="4" '+BODY+'/><path d="M28.6 10 28 3.5 31.2 8ZM35.4 10 36 3.5 32.8 8Z" '+BODY+'/><circle cx="30.7" cy="12" r=".9" fill="#ff4d5e"/><circle cx="33.3" cy="12" r=".9" fill="#ff4d5e"/></svg>';
