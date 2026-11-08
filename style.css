@@ -126,3 +126,14 @@ html.js .play .ch.pop{animation:pop .6s cubic-bezier(.3,1.7,.5,1)}
 @keyframes spin{from{rotate:0 1 0 0deg}to{rotate:0 1 0 360deg}}
 @media (max-width:50rem){.badge{transform:perspective(800px) rotateX(var(--rx,0)) rotateY(var(--ry,0))}}
 @media (prefers-reduced-motion:reduce){.badge,.badge::before,.badge .ap,.badge .chip,.badge.spin{animation:none}}
+
+/* bats released from the AP card */
+.bat{position:fixed;left:0;top:0;z-index:50;pointer-events:none;will-change:transform,opacity;filter:drop-shadow(0 0 6px rgba(224,82,110,.55))}
+.bat svg{display:block;width:100%;height:100%;overflow:visible}
+.bat .wl,.bat .wr{transform-box:view-box;animation:wingL .2s ease-in-out infinite alternate}
+.bat .wl{transform-origin:30px 18px}
+.bat .wr{transform-origin:34px 18px;animation-name:wingR}
+@keyframes wingL{from{transform:rotate(-22deg)}to{transform:rotate(28deg)}}
+@keyframes wingR{from{transform:rotate(22deg)}to{transform:rotate(-28deg)}}
+.batflash{position:fixed;inset:0;z-index:49;pointer-events:none;background:radial-gradient(circle at var(--fx,50%) var(--fy,50%),rgba(138,31,58,.55),transparent 55%);animation:flash 1.1s ease-out forwards}
+@keyframes flash{from{opacity:1}to{opacity:0}}
